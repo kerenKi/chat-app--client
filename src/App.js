@@ -6,7 +6,7 @@ class App extends React.Component {
     message: '',
   }
    
-  onChenge = (event) => {
+  onChange = (event) => {
     this.setState({
       message: event.target.value
     })
@@ -20,7 +20,11 @@ class App extends React.Component {
       <main>
         <h1> Messages:</h1>
         {paragraphs}
-        <input type='text' onChange={this.onChange} />
+        <input 
+        type='text' 
+        onChange={this.onChange}
+        value={this.state.message} />
+        
         <button>send</button>
         <pre>
         <code>{this.state.message}</code>
