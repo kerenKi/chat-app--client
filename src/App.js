@@ -1,43 +1,35 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { sendMessage } from './actions'
+import { Route } from 'react-router-dom'
+import Messages from './component/Messages'
 
 class App extends React.Component {
-  state = {
-    message: '',
-  }
+  // state = {
+  //   message: '',
+  // }
    
-  onChange = (event) => {
-    this.setState({
-      message: event.target.value
-    })
-  }
+  // onChange = (event) => {
+  //   this.setState({
+  //     message: event.target.value
+  //   })
+  // }
 
-  onSend = (event) => {
-    event.preventDefault()
-    this.props.sendMessage(this.state.message)
-    this.setState({
-        message: ''
-    })
-  }
+  // onSend = (event) => {
+  //   event.preventDefault()
+  //   this.props.sendMessage(this.state.message)
+  //   this.setState({
+  //       message: ''
+  //   })
+  // }
 
   render() {
 
-    const paragraphs = this.props.messages.map( (message, index) => <p key={index}>{message}</p>)
+    // const paragraphs = this.props.messages.map( (message) => <p key={message.id}>{message.message}</p>)
 
     return (
       <main>
-        <h1> Messages:</h1>
-        {paragraphs}
-
-        <form onSubmit={this.onSend}>
-        <input 
-        type='text' 
-        onChange={this.onChange}
-        value={this.state.message} />
-        
-        <button type='submit'>send</button>
-        </form>
+        {/* <Route exact path="/" component={LoginForm} /> */}
+        <Route exact path="/message" component={Messages} />
       </main>
     )
   }
@@ -45,8 +37,7 @@ class App extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    messages: state.messages,
-    sent: state.sent
+    
   }
 }
-export default connect(mapStateToProps, {sendMessage})(App);
+export default connect(mapStateToProps)(App);
