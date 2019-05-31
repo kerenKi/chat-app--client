@@ -37,7 +37,6 @@ class App extends React.Component {
         value={this.state.message} />
         
         <button type='submit'>send</button>
-        { this.props.sent && 'checkmark' }
         </form>
       </main>
     )
