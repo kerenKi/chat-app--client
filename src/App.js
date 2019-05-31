@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { sendMessage } from './actions'
 
 class App extends React.Component {
   state = {
@@ -10,6 +11,10 @@ class App extends React.Component {
     this.setState({
       message: event.target.value
     })
+  }
+
+  onSend = () => {
+    this.props.sendMessage(this.state.message)
   }
 
   render() {
@@ -25,10 +30,8 @@ class App extends React.Component {
         onChange={this.onChange}
         value={this.state.message} />
         
-        <button>send</button>
-        <pre>
-        <code>{this.state.message}</code>
-        </pre>
+        <button
+        onClick={this.onSend}>send</button>
       </main>
     )
   }
@@ -39,4 +42,4 @@ function mapStateToProps (state) {
     messages: state
   }
 }
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {sendMessage})(App);
