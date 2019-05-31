@@ -13,8 +13,12 @@ class App extends React.Component {
     })
   }
 
-  onSend = () => {
+  onSend = (event) => {
+    event.preventDefault()
     this.props.sendMessage(this.state.message)
+    this.setState({
+        message: ''
+    })
   }
 
   render() {
@@ -25,13 +29,16 @@ class App extends React.Component {
       <main>
         <h1> Messages:</h1>
         {paragraphs}
+
+        <form onSubmit={this.onSend}>
         <input 
         type='text' 
         onChange={this.onChange}
         value={this.state.message} />
         
-        <button
-        onClick={this.onSend}>send</button>
+        <button type='submit'>send</button>
+        { this.props.sent && 'checkmark' }
+        </form>
       </main>
     )
   }
@@ -39,7 +46,8 @@ class App extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    messages: state
+    messages: state.messages,
+    sent: state.sent
   }
 }
 export default connect(mapStateToProps, {sendMessage})(App);
