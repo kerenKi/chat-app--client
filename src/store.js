@@ -3,7 +3,20 @@ import reduxThunk from 'redux-thunk'
 import socketset from 'socketset'
 
 const is = x => x
-const reducer = is
+
+const initialState = { messages: ['hello world'] }
+
+function reducer (state = initialState, action) {
+  switch (action.type){
+    case 'MESSAGES':
+      return {
+        ...state,
+        messages: action.payload
+      }
+    default:
+    return state
+  }
+}
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
   ? window.__REDUX_DEVTOOLS_EXTENSION__()
