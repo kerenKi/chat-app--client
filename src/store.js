@@ -4,15 +4,12 @@ import socketset from 'socketset'
 
 const is = x => x
 
-const initialState = { messages: ['hello world'] }
+const initialState = [] 
 
 function reducer (state = initialState, action) {
   switch (action.type){
     case 'MESSAGES':
-      return {
-        ...state,
-        messages: action.payload
-      }
+      return action.payload
     default:
     return state
   }
