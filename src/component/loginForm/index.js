@@ -1,50 +1,44 @@
-import React from 'react';
+//The container for LoginForm
 
-class Messages extends React.Component {
+import React, { Component } from 'react';
+import { connect } from "react-redux";
+import LoginForm from './loginForm'
+import { loginUser } from '../../actions'
+
+class LoginFormContainer extends Component {
   state = {
-    message: '',
-  }
-   
-  onChange = (event) => {
-    this.setState({
-      message: event.target.value
-    })
+    user_name: '',
+    password: '',
+    email: '',
   }
 
-  onSend = (event) => {
+   onChange  = (event) => {
+     this.setState({
+      [event.target.name] : event.target.value
+     })
+   }
+
+   onSubmit = (event) => {
     event.preventDefault()
-    this.props.sendMessage(this.state.message)
+    this.props.loginUser(this.state)
     this.setState({
-        message: ''
+      user_name: '',
+      password: '',
+      email: '',
     })
-  }
-  render() {
 
-    const paragraphs = this.props.messages.map( (message) => <p key={message.id}>{message.message}</p>)
-
-    return (
-      <div>
-        <h1> Messages:</h1>
-        {paragraphs}
-
-        <form onSubmit={this.onSend}>
-        <input 
-        type='text' 
-        onChange={this.onChange}
-        value={this.state.message} />
-        
-        <button type='submit'>send</button>
-        </form>
-      </div>
-    )
-  }
+   }
+   
+    render() {
+        return (
+            <div>
+                <LoginForm onChange={this.onChange} onSubmit={this.onSubmit} values={this.state}/>
+            </div>
+        );
+    }
 }
 
-function mapStateToProps (state) {
-  return {
-    messages: state.messages,
-    sent: state.sent
-  }
-}
-export default connect(mapStateToProps, {sendMessage})(Messages);
 
+// Redux: connect to state, bind action creator
+export default connect(null,{ loginUser })(LoginFormContainer);
+  

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
 import Messages from './component/Messages'
+import LoginFormContainer from './component/loginForm'
 
 class App extends React.Component {
   // state = {
@@ -28,7 +29,7 @@ class App extends React.Component {
 
     return (
       <main>
-        {/* <Route exact path="/" component={LoginForm} /> */}
+        <Route exact path="/" component={LoginFormContainer} />
         <Route exact path="/message" component={Messages} />
       </main>
     )
