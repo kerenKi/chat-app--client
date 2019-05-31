@@ -22,7 +22,7 @@ class Messages extends React.Component {
   }
   render() {
 
-    const paragraphs = this.props.messages.map( (message) => <p key={message.id}>{message.user_name} sais: {message.message}</p>)
+    const paragraphs = this.props.messages.map( (message) => <p key={message.id}>{message.user.user_name} sais: {message.message}</p>)
 
     return (
       <div>
