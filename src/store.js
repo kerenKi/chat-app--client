@@ -24,7 +24,20 @@ function sent (state= false, action) {
   }
 }
 
-const reducer = combineReducers({messages,sent})
+function currentUser (state= {}, action) {
+  switch (action.type) {
+    case 'USER_CREATED':
+      return action.payload
+    default:
+      return state  
+  }
+}
+
+const reducer = combineReducers({
+  messages,
+  sent,
+  currentUser
+})
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
   ? window.__REDUX_DEVTOOLS_EXTENSION__()

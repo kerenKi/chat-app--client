@@ -27,30 +27,3 @@ export function loginUser (user) {
 
 
 
-// const POST_NEW_PRODUCT = 'POST_NEW_PRODUCT'
- 
-// const newProductPosted = (product) => ({
-//   type: POST_NEW_PRODUCT,
-//   product
-
-// })
-
-// export const postNewProduct = (product) => (dispatch) => {
-//   if(product.title && product.price && product.email && product.phone_number) {
-//     return request
-//       .post(`${baseUrl}/products`)
-//       .send({
-//         title: product.title,
-//         description: product.description,
-//         picture: product.picture,
-//         price: product.price,
-//         email: product.email,
-//         phone_number: product.phone_number,
-
-//       })
-//         .then(response => {
-//           console.log('post response', response.body)
-//           dispatch(newProductPosted(response.body))})
-//         .catch(console.error)
-//   } 
-// }
