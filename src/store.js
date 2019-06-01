@@ -26,7 +26,7 @@ function sent (state= false, action) {
 
 function currentUser (state= {}, action) {
   switch (action.type) {
-    case 'USER_CREATED':
+    case 'USER_LOGIN':
       return action.payload
     default:
       return state  

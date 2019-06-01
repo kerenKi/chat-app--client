@@ -15,14 +15,14 @@ class Messages extends React.Component {
 
   onSend = (event) => {
     event.preventDefault()
-    this.props.sendMessage(this.state.message)
+    this.props.sendMessage(this.state.message, this.props.currentUser.id)
     this.setState({
         message: ''
     })
   }
   render() {
 
-    const paragraphs = this.props.messages.map( (message) => <p key={message.id}>{message.user.user_name} sais: {message.message}</p>)
+    const paragraphs = this.props.messages.map( (message) => <p key={message.id}>{message.user.user_name} say: {message.message}</p>)
 
     return (
       <div>
@@ -45,7 +45,8 @@ class Messages extends React.Component {
 function mapStateToProps (state) {
   return {
     messages: state.messages,
-    sent: state.sent
+    sent: state.sent,
+    currentUser: state.currentUser
   }
 }
 export default connect(mapStateToProps, {sendMessage})(Messages);

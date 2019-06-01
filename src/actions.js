@@ -1,13 +1,16 @@
 import request from 'superagent'
 
-export function sendMessage (message) {
+export function sendMessage (message, userId) {
   const body = { message }
-
+  console.log('sent message', {message:body, userId:userId})
   request
   .post('http://localhost:4000/message')
-  .send(body)
+  .send({
+    message: body.message,
+    userId: userId
+  })
   .then()
-
+ 
   return { type: 'MESSAGE_SENT' }
 }
 
