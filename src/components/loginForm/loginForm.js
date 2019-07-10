@@ -1,23 +1,26 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 function LoginForm(props) {
     
     return (<div>
-      <h1>LOG IN</h1>
-        <form onSubmit={props.onSubmit}>
-          <label>User name: </label>
-          <input type="text" name="user_name" required value={props.values.user_name} onChange={props.onChange} ></input>
+        <h1>LOG IN</h1>
+        <div className="loginForm">
+          <form onSubmit={props.onSubmit}>
+          
+            <label>Email address: </label>
+            <input type="email" name="email" required value={props.values.email} onChange={props.onChange}></input>
 
-          <label>Password: </label>
-          <input type="password" name="password" value={props.values.password} onChange={props.onChange}></input>
+            <label>Password: </label>
+            <input type="password" name="password" required value={props.values.password} onChange={props.onChange}></input>
 
-          <label>Email address: </label>
-          <input type="email" name="email" value={props.values.email} onChange={props.onChange}></input>
-
-          <input type="submit" value="Log in" />
-        </form>
-        </div>)
+            <input type="submit" value="Log in" />
+          </form>
+        </div>
+        <div className="LoginLinks">
+         <p> <Link className="signupLink" to='/signup'> New here? Sign up!</Link></p>
+        </div>
+     </div> )
     }
-    
 
     export default LoginForm;
