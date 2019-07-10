@@ -12,7 +12,7 @@ function LoginForm(props) {
           <input type="password" name="password" value={props.values.password} onChange={props.onChange}></input>
 
           <label>Email address: </label>
-          <input type="text" name="email" value={props.values.email} onChange={props.onChange}></input>
+          <input type="email" name="email" value={props.values.email} onChange={props.onChange}></input>
 
           <input type="submit" value="Log in" />
         </form>
