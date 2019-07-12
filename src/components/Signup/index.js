@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import SignupForm from './SignupForm'
-// import { signupUser } from '../../actions/signup'
+import { signupUser } from '../../actions/signupUser'
 
 class SignupContainer extends Component {
   state = {
@@ -18,12 +18,12 @@ class SignupContainer extends Component {
 
    onSubmit = (event) => {
     event.preventDefault()
-    // this.props.signupUser(this.state)
-    // this.setState({
-    //   user_name: '',
-    //   email: '',
-    //   password: '',
-    // })
+    this.props.signupUser(this.state)
+    this.setState({
+      user_name: '',
+      email: '',
+      password: '',
+    })
    }
    
   render() {
@@ -35,5 +35,5 @@ class SignupContainer extends Component {
   }
 }
 
-export default connect(null, { })(SignupContainer);
+export default connect(null, { signupUser })(SignupContainer);
   
