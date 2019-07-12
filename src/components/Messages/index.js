@@ -30,15 +30,16 @@ class Messages extends React.Component {
       <div>
         <h1> Messages:</h1>
         {paragraphs}
-
-        <form onSubmit={this.onSend}>
-        <input 
-          type='text' 
-          onChange={this.onChange}
-          value={this.state.text} />
-        
-        <button type='submit'>send</button>
-        </form>
+          <form className="addMessageForm" onSubmit={this.onSend}>
+          <label>Your message</label>
+          <input 
+            required
+            type='text' 
+            onChange={this.onChange}
+            value={this.state.text} />
+          
+          <button type='submit'>send</button>
+          </form>
       </div>
     )
   }
