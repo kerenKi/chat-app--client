@@ -4,6 +4,7 @@ import { sendMessage } from '../../actions'
 
 class Messages extends React.Component {
   state = {
+    userToken: this.props.userToken,
     message: '',
   }
    
@@ -15,14 +16,15 @@ class Messages extends React.Component {
 
   onSend = (event) => {
     event.preventDefault()
-    this.props.sendMessage(this.state.message, this.props.currentUser.id)
+    this.props.sendMessage(this.state)
     this.setState({
-        message: ''
+      userToken: this.props.userToken,      
+      message: ''
     })
   }
   render() {
 
-    const paragraphs = this.props.messages.map( (message) => <p key={message.id}>{message.user.user_name} say: {message.message}</p>)
+    const paragraphs = this.props.messages.map( (message) => <p key={message.id}>{message.user.user_name} says: {message.message}</p>)
 
     return (
       <div>
@@ -46,7 +48,7 @@ function mapStateToProps (state) {
   return {
     messages: state.messages,
     sent: state.sent,
-    currentUser: state.currentUser
+    userToken: state.currentUser.jwt
   }
 }
 export default connect(mapStateToProps, {sendMessage})(Messages);

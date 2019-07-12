@@ -3,11 +3,10 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import LoginForm from './loginForm'
-import { loginUser } from '../../actions'
+import { loginUser } from '../../actions/loginUser'
 
 class LoginFormContainer extends Component {
   state = {
-    user_name: '',
     password: '',
     email: '',
   }
@@ -22,7 +21,6 @@ class LoginFormContainer extends Component {
     event.preventDefault()
     this.props.loginUser(this.state)
     this.setState({
-      user_name: '',
       password: '',
       email: '',
     })
@@ -38,7 +36,5 @@ class LoginFormContainer extends Component {
     }
 }
 
-
-// Redux: connect to state, bind action creator
 export default connect(null,{ loginUser })(LoginFormContainer);
   

@@ -16,7 +16,7 @@ class App extends React.Component {
       <div className="App">
         <main>
           <Route exact path="/" render={() => (
-            this.props.currentUser.id ? 
+            this.props.currentUser.jwt ? 
             (<Redirect to="/message"/>)
             :
             (<LoginContainer/>)
@@ -26,11 +26,11 @@ class App extends React.Component {
             exact 
             path="/signup" 
             render={() =>
-              this.props.currentUser.id  ? <Redirect to="/message" /> : <SignupContainer />
+              this.props.currentUser.jwt  ? <Redirect to="/message" /> : <SignupContainer />
             }/>
 
             <Route exact path="/message" render={() => (
-              !this.props.currentUser.id ? 
+              !this.props.currentUser.jwt ? 
               (<Redirect to="/"/>)
               :
               (<Messages/>)
