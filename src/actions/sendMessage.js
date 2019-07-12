@@ -1,22 +1,13 @@
 import request from 'superagent'
 
-export const MESSAGE_SENT = 'MESSAGE_SENT';
-
-const messageSent = (message) => ({
-  type: MESSAGE_SENT,
-  payload:{
-    message
-  } 
-})
-
 export const sendMessage = (message) => (dispatch) => {
-  const {userToken, message} = message 
+  const { userToken, text } = message 
   return request
   .post('http://localhost:4000/message')
   .send({
-    message
+    message: text
   })
   .set('Authorization', `Bearer ${userToken}`)
-  .then(res => {dispatch(messageSent(res.body.tickets,res.body.risks))})
+  .then(res => {dispatch({type: 'MESSAGE_SENT'})})
   .catch(console.error)
 }

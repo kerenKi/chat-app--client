@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { sendMessage } from '../../actions'
+import { sendMessage } from '../../actions/sendMessage'
 
 class Messages extends React.Component {
   state = {
     userToken: this.props.userToken,
-    message: '',
+    text: '',
   }
    
   onChange = (event) => {
     this.setState({
-      message: event.target.value
+      text: event.target.value
     })
   }
 
@@ -19,7 +19,7 @@ class Messages extends React.Component {
     this.props.sendMessage(this.state)
     this.setState({
       userToken: this.props.userToken,      
-      message: ''
+      text: ''
     })
   }
   render() {
@@ -33,9 +33,9 @@ class Messages extends React.Component {
 
         <form onSubmit={this.onSend}>
         <input 
-        type='text' 
-        onChange={this.onChange}
-        value={this.state.message} />
+          type='text' 
+          onChange={this.onChange}
+          value={this.state.text} />
         
         <button type='submit'>send</button>
         </form>
@@ -47,9 +47,8 @@ class Messages extends React.Component {
 function mapStateToProps (state) {
   return {
     messages: state.messages,
-    sent: state.sent,
     userToken: state.currentUser.jwt
   }
 }
-export default connect(mapStateToProps, {sendMessage})(Messages);
+export default connect(mapStateToProps, { sendMessage })(Messages);
 
