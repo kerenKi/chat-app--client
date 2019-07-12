@@ -5,41 +5,6 @@ import socketset from 'socketset'
 
 const is = x => x
 
-// const initialState = [] 
-
-// function messages (state = initialState, action) {
-//   switch (action.type){
-//     case 'MESSAGES':
-//       return action.payload
-//     default:
-//     return state
-//   }
-// }
-
-// function sent (state= false, action) {
-//   switch (action.type) {
-//     case 'MESSAGE_SENT':
-//       return !state
-//     default:
-//       return state  
-//   }
-// }
-
-// function currentUser (state= {}, action) {
-//   switch (action.type) {
-//     case 'USER_LOGIN':
-//       return action.payload
-//     default:
-//       return state  
-//   }
-// }
-
-// const reducer = combineReducers({
-//   messages,
-//   sent,
-//   currentUser
-// })
-
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
   ? window.__REDUX_DEVTOOLS_EXTENSION__()
   : is
