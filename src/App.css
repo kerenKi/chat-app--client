@@ -151,15 +151,13 @@ body {
 .addMessageForm input {
   background: #e6e6e7;
   border: none;
-  /* position: relative;
-  bottom: 10px; */
   padding: 5px ;
   margin: 10px;
   border-radius: 3px;
   font-size: 18px;
   font-weight: 700;
   font-family: 'Raleway', sans-serif;
-	color: #ebebebd5;
+	color: #020202d5;
 }
 
 .addMessageForm input:hover { 
