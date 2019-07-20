@@ -1,8 +1,13 @@
 import request from 'superagent'
 
+//
+export const add = (x, y) =>  {
+  return x + y
+}
+//
 export const USER_LOGGED = 'USER_LOGGED';
 
-const userLogged = (user) => ({
+export const userLogged = (user) => ({
   type: USER_LOGGED,
   payload: user
 })
