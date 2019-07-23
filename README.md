@@ -1,4 +1,4 @@
-# Chat-app
+# :incoming_envelope: Chat-app 
 
 ![](send_message.gif)
 
