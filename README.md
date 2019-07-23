@@ -1,3 +1,35 @@
+# Chat-app
+
+![](send_message.gif)
+
+### What this project is about
+
+This is a simple chat app.
+An individual project in order to practice building a full-stack application using different technologies and concepts.
+
+
+### Technologies used
+
+Click links to view some samples in this project 
+* [React](https://github.com/kerenKi/chat-app--client/blob/master/src/App.js)
+* [Redux](https://github.com/kerenKi/chat-app--client/blob/master/src/reducers/messages.js)
+* [socketset](https://github.com/kerenKi/chat-app--client/blob/master/src/store.js)
+
+[Here](https://github.com/kerenKi/Chat-app-server) is the backend side of the project
+
+### `installation`
+
+To install and run this app:
+```
+$ git clone git@github.com:kerenKi/chat-app--client.git
+$ cd chat-app--client
+$ npm install
+$ npm start
+```
+
+
+##
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
