@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import VerifyPhoneNumber from '../VerifyPhoneNumber'
 
 function LoginForm(props) {
     
@@ -16,11 +17,12 @@ function LoginForm(props) {
 
             <input type="submit" value="Log in" />
           </form>
+          <p><VerifyPhoneNumber></VerifyPhoneNumber></p>
         </div>
         <div className="LoginLinks">
-         <p> <Link className="signupLink" to='/signup'> New here? Sign up!</Link></p>
+        <p> <Link className="signupLink" to='/signup'> New here? Sign up!</Link></p>
         </div>
-     </div> )
+    </div> )
     }
 
     export default LoginForm;
