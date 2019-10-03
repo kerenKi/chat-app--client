@@ -16,7 +16,7 @@ class SignupContainer extends Component {
     })
   }
 
-   onSubmit = (event) => {
+  onSubmit = (event) => {
     event.preventDefault()
     this.props.signupUser(this.state)
     this.setState({
@@ -24,8 +24,8 @@ class SignupContainer extends Component {
       email: '',
       password: '',
     })
-   }
-   
+  }
+  
   render() {
       return (
           <div>
