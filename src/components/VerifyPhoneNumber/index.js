@@ -19,7 +19,6 @@ class VerifyPhoneNumber extends Component {
 
   onSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state)
     this.props.sendNumber(this.state)
     this.setState({
       country_code: '',

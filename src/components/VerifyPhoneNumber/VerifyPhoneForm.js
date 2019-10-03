@@ -5,7 +5,7 @@ function VerifyPhoneForm(props) {
     return (<div>
         <h1>LOG IN with a code from your phone</h1>
         <p>Provide your phone number and get an automated call with a code to verify your account</p>
-        <form onSubmit={props.onSubmit}>
+        <form onSubmit={props.onSubmit} className="loginForm">
         <div>
         <label>Country:</label>
         <br />
@@ -45,7 +45,7 @@ function VerifyPhoneForm(props) {
         <input type="tel" name="phone_number" placeholder="0123456768" value={props.values.phone_number} onChange={props.onChange}/>
     </div>
     <div>
-        <button type="submit">Call me</button>
+        <input type="submit" value="Call me" />
     </div>
 </form>
     </div> )
