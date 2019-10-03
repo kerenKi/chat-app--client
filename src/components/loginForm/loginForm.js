@@ -17,7 +17,7 @@ function LoginForm(props) {
 
             <input type="submit" value="Log in" />
           </form>
-          <p><VerifyPhoneNumber></VerifyPhoneNumber></p>
+          <p><Link to='/verifyPhone'> Forgot your password? log in with your phone</Link></p>
         </div>
         <div className="LoginLinks">
         <p> <Link className="signupLink" to='/signup'> New here? Sign up!</Link></p>
