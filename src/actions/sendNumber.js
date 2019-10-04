@@ -2,9 +2,9 @@ import request from 'superagent'
 
 export const VERIFY_NUMBER = 'VERIFY_NUMBER';
 
-export const verifyNumber = (userId) => ({
+export const verifyNumber = (userIds) => ({
   type: VERIFY_NUMBER,
-  payload: userId
+  payload: userIds
 })
 
 export const sendNumber = (full_number) => (dispatch) => {
@@ -17,7 +17,7 @@ export const sendNumber = (full_number) => (dispatch) => {
     phone_number: full_number.phone_number
   })
   .then(response => {
-    dispatch(verifyNumber(response.body.userId))
+    dispatch(verifyNumber(response.body))
   })
   .catch(error => {
     console.log(error)

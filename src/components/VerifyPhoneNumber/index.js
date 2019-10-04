@@ -4,12 +4,15 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import VerifyPhoneForm from './VerifyPhoneForm'
 import { sendNumber } from '../../actions/sendNumber'
+import { sendCode } from '../../actions/sendCode'
 
 class VerifyPhoneNumber extends Component {
   state = {
     email:'',
     country_code: '',
-    phone_number: ''
+    phone_number: '',
+    code:'',
+    enableCodeButton: true
   }
 
   onChange  = (event) => {
@@ -25,17 +28,42 @@ class VerifyPhoneNumber extends Component {
       email:'',
       country_code: '',
       phone_number: '',
+      code:'',
+      enableCodeButton: true
     })
   }
 
   onSubmitCode = (event) => {
     event.preventDefault()
-    
+    console.log('code submit')
+    console.log({
+      code: this.state.code,
+      mbId: this.props.userIds.mbId,
+      userId: this.props.userIds.userId
+    })
+    this.props.sendCode({
+      code: this.state.code,
+      mbId: this.props.userIds.mbId,
+      userId: this.props.userIds.userId
+    })
+    this.setState({
+      email:'',
+      country_code: '',
+      phone_number: '',
+      code:'',
+      enableCodeButton: false
+    })
   }
     render() {
         return (
             <div>
-                <VerifyPhoneForm onChange={this.onChange} onSubmit={this.onSubmit} values={this.state} userId={this.props.userId}/>
+                <VerifyPhoneForm 
+                  onChange={this.onChange} 
+                  onSubmit={this.onSubmit} 
+                  onSubmitCode={this.onSubmitCode} 
+                  enableCodeButton={this.state.enableCodeButton}
+                  values={this.state} 
+                  userIds={this.props.userIds}/>
             </div>
         );
     }
@@ -43,8 +71,8 @@ class VerifyPhoneNumber extends Component {
 
 const mapStateToProps = state => {
   return {
-    userId: state.userId
+    userIds: state.userIds
   }
 }
 
-export default connect(mapStateToProps,{ sendNumber })(VerifyPhoneNumber);
+export default connect(mapStateToProps,{ sendNumber, sendCode })(VerifyPhoneNumber);

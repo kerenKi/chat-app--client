@@ -1,10 +1,10 @@
 import React from 'react';
 
 function VerifyPhoneForm(props) {
-    
+    const enableCodeButton = props.enableCodeButton
     return (<div>
         <h1>LOG IN with a code from your phone</h1>
-        {!props.userId && <div>
+        {!props.userIds.mbId && <div>
           <p>Provide your phone number and get an automated call with a code to verify your account</p>
           <form onSubmit={props.onSubmit} className="loginForm">
 
@@ -49,18 +49,19 @@ function VerifyPhoneForm(props) {
         </form>
       </div> }
 
-      {props.userId && <div>
+      {props.userIds.mbId && <div>
         <p>Please pick up the automated call, listen to the verification code and enter it in the form below.</p>
+        
         <form onSubmit={props.onSubmitCode} className="loginForm">
             <div>
                 <label>Code:</label>
                 <br />
-                <input type="text" name="token" placeholder="123456" />
+                <input type="text" name="code" placeholder="123456" value={props.values.code} onChange={props.onChange}/>
             </div>
-            <div>
-                <input type="hidden" name="id" value="{{id}}" />
+            {enableCodeButton && <div>
                 <input type="submit" value="Confirm" />
-            </div>
+            </div>  
+            } 
         </form>
       </div>}
     </div> )
