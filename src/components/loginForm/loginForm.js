@@ -16,11 +16,12 @@ function LoginForm(props) {
 
             <input type="submit" value="Log in" />
           </form>
+          <p><Link to='/verifyPhone'> Forgot your password? log in with your phone</Link></p>
         </div>
         <div className="LoginLinks">
-         <p> <Link className="signupLink" to='/signup'> New here? Sign up!</Link></p>
+        <p> <Link className="signupLink" to='/signup'> New here? Sign up!</Link></p>
         </div>
-     </div> )
+    </div> )
     }
 
     export default LoginForm;

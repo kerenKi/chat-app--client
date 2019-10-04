@@ -70,6 +70,8 @@ body {
 
 .loginForm input[type="email"],
 .loginForm input[type="text"],
+.loginForm input[type="tel"],
+.loginForm select,
 .loginForm input[type="password"] {
   font-family: 'Raleway', sans-serif;
 	background: rgba(255, 255, 255, 0.425);
@@ -92,6 +94,8 @@ body {
 
 .loginForm input[type="email"]:focus,
 .loginForm input[type="text"]:focus,
+.loginForm input[type="tel"]:focus,
+.loginForm select:focus,
 .loginForm input[type="password"]:focus {
   background: rgb(223, 174, 181);
 }

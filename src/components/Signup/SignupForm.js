@@ -9,8 +9,8 @@ function SignupForm(props) {
         <form onSubmit={props.onSubmit}>
         <label>User name: </label>
           <input type="text" name="user_name" required value={props.values.user_name} onChange={props.onChange}></input>
-         
-         <label>Email address: </label>
+        
+          <label>Email address: </label>
           <input type="email" name="email" required value={props.values.email} onChange={props.onChange}></input>
 
           <label>Password: </label>

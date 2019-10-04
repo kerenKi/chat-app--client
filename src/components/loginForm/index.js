@@ -11,13 +11,13 @@ class LoginFormContainer extends Component {
     email: '',
   }
 
-   onChange  = (event) => {
-     this.setState({
+  onChange  = (event) => {
+    this.setState({
       [event.target.name] : event.target.value
-     })
-   }
+    })
+  }
 
-   onSubmit = (event) => {
+  onSubmit = (event) => {
     event.preventDefault()
     this.props.loginUser(this.state)
     this.setState({
@@ -25,8 +25,8 @@ class LoginFormContainer extends Component {
       email: '',
     })
 
-   }
-   
+  }
+  
     render() {
         return (
             <div>
