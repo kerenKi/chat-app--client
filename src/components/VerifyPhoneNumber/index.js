@@ -7,8 +7,9 @@ import { sendNumber } from '../../actions/sendNumber'
 
 class VerifyPhoneNumber extends Component {
   state = {
+    email:'',
     country_code: '',
-    phone_number: '',
+    phone_number: ''
   }
 
   onChange  = (event) => {
@@ -21,18 +22,29 @@ class VerifyPhoneNumber extends Component {
     event.preventDefault()
     this.props.sendNumber(this.state)
     this.setState({
+      email:'',
       country_code: '',
       phone_number: '',
     })
+  }
 
+  onSubmitCode = (event) => {
+    event.preventDefault()
+    
   }
     render() {
         return (
             <div>
-                <VerifyPhoneForm onChange={this.onChange} onSubmit={this.onSubmit} values={this.state}/>
+                <VerifyPhoneForm onChange={this.onChange} onSubmit={this.onSubmit} values={this.state} userId={this.props.userId}/>
             </div>
         );
     }
 }
 
-export default connect(null,{ sendNumber })(VerifyPhoneNumber);
+const mapStateToProps = state => {
+  return {
+    userId: state.userId
+  }
+}
+
+export default connect(mapStateToProps,{ sendNumber })(VerifyPhoneNumber);
