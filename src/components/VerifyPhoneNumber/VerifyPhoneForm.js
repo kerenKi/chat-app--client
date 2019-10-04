@@ -50,7 +50,7 @@ function VerifyPhoneForm(props) {
       </div> }
 
       {props.userIds.mbId && <div>
-        <p>Please pick up the automated call, listen to the verification code and enter it in the form below.</p>
+        <p>Please pick up the automated call, listen to the <strong>6-digit</strong> verification code and enter it in the form below.</p>
         
         <form onSubmit={props.onSubmitCode} className="loginForm">
             <div>

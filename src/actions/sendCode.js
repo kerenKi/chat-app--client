@@ -12,7 +12,7 @@ export const sendCode = (codeAndIds) => (dispatch) => {
   })
   .then(response => {
     console.log('confirm response', response)
-    // dispatch(userLogged(response.body))
+    dispatch(userLogged(response.body))
   })
   .catch(error => {
     console.log(error)

@@ -37,7 +37,10 @@ class App extends React.Component {
               )}/>
 
             <Route exact path="/verifyPhone" render={() => (
-              <VerifyPhoneNumber></VerifyPhoneNumber>
+              !this.props.currentUser.jwt ? 
+              (<VerifyPhoneNumber/>)
+              :
+              (<Messages/>)
               )}/>
               
             </main>
