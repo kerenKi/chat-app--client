@@ -35,12 +35,6 @@ class VerifyPhoneNumber extends Component {
 
   onSubmitCode = (event) => {
     event.preventDefault()
-    console.log('code submit')
-    console.log({
-      code: this.state.code,
-      mbId: this.props.userIds.mbId,
-      userId: this.props.userIds.userId
-    })
     this.props.sendCode({
       code: this.state.code,
       mbId: this.props.userIds.mbId,

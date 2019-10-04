@@ -2,7 +2,6 @@ import request from 'superagent'
 import { userLogged } from './loginUser'
 
 export const sendCode = (codeAndIds) => (dispatch) => {
-  console.log('codeAndIds:', codeAndIds)
   return request
   .post('http://localhost:4000/confirm')
   .send({
@@ -11,7 +10,6 @@ export const sendCode = (codeAndIds) => (dispatch) => {
     userId: codeAndIds.userId
   })
   .then(response => {
-    console.log('confirm response', response)
     dispatch(userLogged(response.body))
   })
   .catch(error => {

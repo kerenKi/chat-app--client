@@ -8,7 +8,6 @@ export const verifyNumber = (userIds) => ({
 })
 
 export const sendNumber = (full_number) => (dispatch) => {
-  console.log('dispatch:', full_number)
   return request
   .post('http://localhost:4000/verify')
   .send({
